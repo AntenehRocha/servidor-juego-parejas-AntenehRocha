@@ -15,6 +15,7 @@ document.getElementById("boton-jugar").addEventListener("click", function () {
       if (mensaje) {
         alert(mensaje);
       } else {
+        localStorage.setItem("nombre-usuario", nombreUsuario);
         window.location.href = "juego.html";
       }
       console.log(mensaje);

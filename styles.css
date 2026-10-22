@@ -1,8 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+}
 main {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
   width: 100%;
   height: 100vh;
 }
@@ -27,9 +37,7 @@ main {
 }
 
 .carta {
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 90%;
+  width: 80%;
   height: 100%;
 }
 
@@ -48,18 +56,66 @@ button:hover {
   cursor: pointer;
 }
 
-.header-index {
+.main-index {
+  font-family: "Courier New", Courier, monospace;
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
+  align-items: center;
 }
 
-.header-index input {
+.main-index input {
   border-radius: 20px;
-  width: 20%;
+  width: 30%;
 }
 
-.header-index button {
-  width: 30%;
+.main-index button {
+  width: 15%;
+}
+
+.contenedor-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.top-5 {
+  border: 1px solid black;
+  width: 70%;
+  height: 55vh;
+  border-radius: 30px;
+  margin-right: 10%;
+}
+
+.header-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sidebar p {
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+}
+
+.carta {
+  background-image: url("./public/img/carta-juego.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  scale: 125%;
 }
