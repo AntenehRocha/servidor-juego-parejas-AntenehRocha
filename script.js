@@ -1,12 +1,22 @@
 "use strict";
 
-document.getElementById('boton-jugar').addEventListener('click', function () {
-    fetch('validacion.php', {
-        method: 'POST'
-    })
-        .then(res => res.json())
-        .then(mensaje => {
-            console.log(mensaje);
-        })
-});
+document.getElementById("boton-jugar").addEventListener("click", function () {
+  let nombreUsuario = document.getElementById("nombre-usuario").value;
 
+  let formData = new FormData();
+  formData.append("nombre-usuario", nombreUsuario);
+
+  fetch("validacion.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((mensaje) => {
+      if (mensaje) {
+        alert(mensaje);
+      } else {
+        window.location.href = "juego.html";
+      }
+      console.log(mensaje);
+    });
+});
