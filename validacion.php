@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensaje = 'Por favor, introduce un nombre de usuario';
     } else {
         $_SESSION['usuario'] = $nombre;
-        $coleccionUsuarios->insertOne([
+        $coleccionPartida->insertOne([
             'nombre' => $nombre
         ]);
     }

@@ -8,6 +8,6 @@ $uri = 'mongodb+srv://antenehro_db_user:antenehrocha@cluster0.rfzgpbk.mongodb.ne
 $client = new MongoDB\Client($uri);
 
 $bd = $client->selectDatabase('juego-pareja-cartas');
-$coleccionUsuarios = $bd->selectCollection('usuarios');
+$coleccionPartida = $bd->selectCollection('partida');
 
 ?>
