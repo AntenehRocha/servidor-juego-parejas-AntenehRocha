@@ -20,6 +20,8 @@ WORKDIR /var/www/html
 
 COPY . /var/www/html/
 
+RUN composer install
+
 # aqui le doy los permisos
 
 RUN chown -R www-data:www-data /var/www/html
