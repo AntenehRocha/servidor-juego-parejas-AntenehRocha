@@ -27,6 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $coleccionPartida->insertOne([
         'usuario' => $usuario,
         'tiempo' => $tiempo,
-        'puntuacion' => $puntuacion
+        'puntuacion' => (int)$puntuacion
     ]);
 }
