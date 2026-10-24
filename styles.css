@@ -119,3 +119,14 @@ button:hover {
   background-repeat: no-repeat;
   scale: 125%;
 }
+
+.terminar-ahora {
+  border-style: none;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: black;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+}
