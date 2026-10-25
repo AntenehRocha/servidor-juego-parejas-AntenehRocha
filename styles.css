@@ -1,13 +1,13 @@
 :root {
   color-scheme: dark;
-  --fondo: #070a0f;
-  --panel: #101720;
-  --panel-claro: #151f2b;
-  --borde: #283746;
-  --texto: #f4f7fb;
-  --texto-suave: #9aabba;
-  --acento: #5de2e7;
-  --acento-hover: #8af4f2;
+  --fondo: #0b0715;
+  --panel: #19102a;
+  --panel-claro: #28183f;
+  --borde: #654b92;
+  --texto: #fff9ff;
+  --texto-suave: #c5b4d8;
+  --acento: #aa78ff;
+  --acento-hover: #c7a8ff;
   --radio: 18px;
   font-family: "Courier New", Courier, monospace;
 }
@@ -21,9 +21,7 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--texto);
-  background:
-    radial-gradient(ellipse at 50% -18%, #172735 0, transparent 53%),
-    var(--fondo);
+  background: var(--fondo);
 }
 
 button,
@@ -63,6 +61,14 @@ input:focus-visible {
   display: flex;
   justify-content: center;
   padding: clamp(20px, 4vw, 48px) 20px 12px;
+  background: transparent;
+  border-bottom: 2px solid var(--borde);
+}
+
+body > header:not(.header-index) {
+  height: 160px;
+  background: transparent;
+  border-bottom: 2px solid var(--borde);
 }
 
 .header-index img {
@@ -117,7 +123,7 @@ input:focus-visible {
   min-height: 50px;
   padding: 13px 15px;
   color: var(--texto);
-  background: #080d13;
+  background: #10091a;
   border: 1px solid var(--borde);
   border-radius: 10px;
 }
@@ -157,7 +163,7 @@ input:focus-visible {
   padding: 12px 14px;
   color: var(--texto);
   background: var(--panel-claro);
-  border: 1px solid #28374699;
+  border: 1px solid #654b92;
   border-radius: 10px;
   line-height: 1.5;
 }
@@ -189,7 +195,7 @@ body > main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  border: 1px solid #f4f7fb30;
+  border: 1px solid #bca1ff;
   border-radius: 12px;
   box-shadow: 0 5px 16px #0006;
   cursor: pointer;
@@ -217,7 +223,7 @@ body > main {
 .sidebar > div {
   padding: 14px;
   background: var(--panel-claro);
-  border: 1px solid #28374699;
+  border: 1px solid #654b92;
   border-radius: 12px;
 }
 
@@ -233,8 +239,8 @@ body > main {
   width: 100%;
   margin-top: 4px;
   color: var(--texto);
-  background: #202b38;
-  border-color: #394b5d;
+  background: #34204a;
+  border-color: #aa78ff;
 }
 
 .terminar-ahora:hover {
@@ -263,6 +269,7 @@ body > main {
 @media (max-width: 620px) {
   .header-index {
     padding: 20px 12px 8px;
+    background: transparent;
   }
 
   .contenedor-index {
