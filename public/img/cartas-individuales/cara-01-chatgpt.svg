@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560"><ns0:rect width="560" height="560" fill="#080808" /><ns0:g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+ <ns0:rect x="3" y="3" width="554" height="554" rx="44" stroke-width="7" />
+ <ns0:rect x="27" y="27" width="506" height="506" rx="28" stroke-width="3" />
+ <ns0:text x="280" y="66" text-anchor="middle" fill="#fff" stroke="none" font-family="DejaVu Sans Mono,monospace" font-size="22" font-weight="bold" letter-spacing="1">chatgpt</ns0:text>
+ <ns0:text x="280" y="514" text-anchor="middle" fill="#fff" stroke="none" font-family="DejaVu Sans Mono,monospace" font-size="22" font-weight="bold" letter-spacing="1">chatgpt</ns0:text>
+ <ns0:path d="M62 95h85l18-18h70m183 0h68l18 18h24M62 466h34l18 18h70m188 0h70l18-18h38" stroke-width="3" />
+ <ns0:circle cx="147" cy="95" r="5" /><ns0:circle cx="418" cy="77" r="5" /><ns0:circle cx="115" cy="484" r="5" /><ns0:circle cx="453" cy="466" r="5" />
+ <ns0:path d="M62 130v45l18 18v30m400-93v45l-18 18v30M62 430v-38l18-18v-25m400 81v-38l-18-18v-25" stroke-width="3" />
+ <ns0:circle cx="80" cy="193" r="5" /><ns0:circle cx="480" cy="193" r="5" /><ns0:circle cx="80" cy="374" r="5" /><ns0:circle cx="480" cy="374" r="5" />
+ <ns0:g transform="translate(200 196) scale(1.6)" stroke-width="2.5"><ns0:path d="M50 12c-13-9-30 0-30 15-13 1-20 17-12 28-7 11-1 27 12 29 1 15 17 23 30 15 13 8 29 0 30-15 13-2 19-18 12-29 8-11 1-27-12-28C80 12 63 3 50 12Z" /><ns0:path d="m38 28 12 7 12-7m-24 0v14l12 7 12-7V28M26 50l12-7m-12 7 12 7v14m36-28 12 7-12 7v14M38 71l12-7 12 7m-12-22v22" /></ns0:g>
+ <ns0:path d="M185 285h-48l-18 18h-28m272-18h48l18 18h28M185 340h-38l-16 16h-40m272-16h38l16 16h40" stroke-width="3" />
+ <ns0:circle cx="91" cy="303" r="5" /><ns0:circle cx="469" cy="303" r="5" /><ns0:circle cx="91" cy="356" r="5" /><ns0:circle cx="469" cy="356" r="5" />
+ </ns0:g></ns0:svg>

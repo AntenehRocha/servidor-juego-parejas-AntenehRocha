@@ -1,189 +1,315 @@
+:root {
+  color-scheme: dark;
+  --fondo: #070a0f;
+  --panel: #101720;
+  --panel-claro: #151f2b;
+  --borde: #283746;
+  --texto: #f4f7fb;
+  --texto-suave: #9aabba;
+  --acento: #5de2e7;
+  --acento-hover: #8af4f2;
+  --radio: 18px;
+  font-family: "Courier New", Courier, monospace;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: auto;
-  padding: 0;
-  font-family: "Courier New", Courier, monospace;
-}
-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-  height: 100vh;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--texto);
+  background:
+    radial-gradient(ellipse at 50% -18%, #172735 0, transparent 53%),
+    var(--fondo);
 }
 
-.tablero {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 60%;
-  height: 90%;
-  gap: 15px;
-  padding: 15px;
-}
-
-.sidebar {
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 30%;
-  height: 90%;
-}
-
-.carta {
-  width: 80%;
-  height: 100%;
+button,
+input {
+  font: inherit;
 }
 
 button {
-  border-style: none;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: white;
-  font-weight: bold;
-  text-align: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  color: #071014;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--acento);
+  border: 1px solid var(--acento);
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
 }
 
 button:hover {
-  transform: scale(1.05);
-  cursor: pointer;
+  background: var(--acento-hover);
+  box-shadow: 0 0 22px #5de2e733;
+  transform: translateY(-2px);
 }
 
-.main-index {
-  font-family: "Courier New", Courier, monospace;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.main-index input {
-  border-radius: 20px;
-  width: 30%;
-}
-
-.main-index button {
-  width: 15%;
-}
-
-.contenedor-index {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.top-5 {
-  border: 1px solid black;
-  width: 70%;
-  height: 55vh;
-  border-radius: 30px;
-  margin-right: 10%;
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
 }
 
 .header-index {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  padding: clamp(20px, 4vw, 48px) 20px 12px;
+}
+
+.header-index img {
+  display: block;
+  width: min(100%, 1050px);
+  height: auto;
+  object-fit: contain;
+}
+
+.contenedor-index {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+  align-items: stretch;
+  gap: 24px;
+  width: min(1120px, calc(100% - 40px));
+  margin: 12px auto 48px;
+}
+
+.main-index,
+.top-5,
+.sidebar,
+.tablero {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow:
+    0 16px 42px #0005,
+    inset 0 1px #ffffff08;
+}
+
+.main-index {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 16px;
+  min-height: 240px;
+  padding: clamp(22px, 4vw, 40px);
+}
+
+.main-index::before {
+  content: "NUEVA PARTIDA";
+  margin-bottom: 4px;
+  color: var(--acento);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.main-index input {
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 15px;
+  color: var(--texto);
+  background: #080d13;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+
+.main-index input::placeholder {
+  color: var(--texto-suave);
+}
+
+.main-index button {
+  width: 100%;
+}
+
+.top-5 {
+  min-width: 0;
+  min-height: 240px;
+  margin: 0;
+  padding: clamp(22px, 4vw, 36px);
+}
+
+.top-5::before {
+  content: "MEJORES PUNTUACIONES";
+  display: block;
+  margin-bottom: 18px;
+  color: var(--acento);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+#contenedor-datos-top {
+  display: grid;
+  gap: 10px;
+}
+
+#contenedor-datos-top p {
+  margin: 0;
+  padding: 12px 14px;
+  color: var(--texto);
+  background: var(--panel-claro);
+  border: 1px solid #28374699;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+body > main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  align-items: start;
+  gap: 20px;
+  width: min(1480px, calc(100% - 40px));
+  margin: 24px auto;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(8px, 1.2vw, 16px);
+  min-width: 0;
+  padding: clamp(12px, 1.8vw, 22px);
+}
+
+.carta {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  background-color: #000;
+  background-image: url("./public/img/cartas-individuales/reverso-01-chatgpt.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid #f4f7fb30;
+  border-radius: 12px;
+  box-shadow: 0 5px 16px #0006;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.carta:hover {
+  border-color: var(--acento);
+  box-shadow: 0 0 18px #5de2e733;
+  transform: translateY(-3px);
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: stretch;
+  gap: 12px;
+  min-width: 0;
+  padding: 22px;
+}
+
+.sidebar > div {
+  padding: 14px;
+  background: var(--panel-claro);
+  border: 1px solid #28374699;
+  border-radius: 12px;
 }
 
 .sidebar p {
-  font-weight: bold;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 50px;
-}
-
-.carta {
-  background-image: url("./public/img/carta-juego.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  scale: 125%;
+  margin: 0;
+  color: var(--texto);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .terminar-ahora {
-  border-style: none;
-  border: 1px solid black;
-  border-radius: 20px;
-  background-color: black;
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
-  color: white;
+  width: 100%;
+  margin-top: 4px;
+  color: var(--texto);
+  background: #202b38;
+  border-color: #394b5d;
 }
 
-.header-index img {
-  width: 20%;
-  position: relative;
+.terminar-ahora:hover {
+  color: #071014;
+  background: var(--acento);
+  border-color: var(--acento);
 }
 
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
+@media (max-width: 900px) {
+  .contenedor-index {
+    grid-template-columns: 1fr;
+    width: min(680px, calc(100% - 32px));
+  }
+
+  body > main {
+    grid-template-columns: minmax(0, 1fr) 220px;
+    width: calc(100% - 32px);
+    gap: 14px;
   }
 
   .tablero {
-    width: 100%;
-    height: 70vh;
-    gap: 8px;
-    padding: 8px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
 
-  .carta {
-    width: 100%;
-    scale: 1;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-  }
-
-  .sidebar p {
-    font-size: 30px;
+@media (max-width: 620px) {
+  .header-index {
+    padding: 20px 12px 8px;
   }
 
   .contenedor-index {
-    flex-direction: column;
-    gap: 20px;
+    gap: 14px;
+    margin-top: 8px;
   }
 
-  .main-index input {
-    width: 80%;
+  body > main {
+    grid-template-columns: 1fr;
+    width: calc(100% - 24px);
+    margin: 12px auto 24px;
   }
 
-  .main-index button {
-    width: 50%;
+  .tablero {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 10px;
+    border-radius: 14px;
   }
 
-  .top-5 {
-    width: 90%;
-    height: 40vh;
-    margin-right: 0;
+  .carta {
+    border-radius: 9px;
   }
 
-  .header-index img {
-    width: 70%;
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .sidebar > div {
+    padding: 11px;
+  }
+
+  .terminar-ahora {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
