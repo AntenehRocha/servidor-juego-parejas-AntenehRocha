@@ -62,6 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (primeraCarta.dataset.imagen === carta.dataset.imagen) {
           console.log("son pareja");
           puntuacion++;
+
+          if (puntuacion === 15) {
+            if (tiempoTranscurrido < 60) {
+              puntuacion += 40;
+            }
+            puntuacionHTML.innerHTML = `<p> Puntuacion : ${puntuacion} </p>`;
+            finalizarPartida();
+            alert("juego terminado con exito");
+            return;
+          }
         } else {
           console.log("no son pareja");
           const cartaPrimera = primeraCarta;
@@ -90,9 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
   botonTerminar.addEventListener("click", () => {
     let formData2 = new FormData();
 
-    if (tiempoTranscurrido < 60 && puntuacion == 15) {
-      puntuacion += 40;
-    }
+    // if (tiempoTranscurrido < 60 && puntuacion == 15) {
+    //  puntuacion += 40;
+    // }
 
     formData2.append("tiempo", tiempoTranscurrido);
     formData2.append("puntuacion", puntuacion);
