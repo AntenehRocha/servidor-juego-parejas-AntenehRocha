@@ -1,6 +1,8 @@
 "use strict";
+import { inicializarTablero } from "./barajar-cartas.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  inicializarTablero();
   let nombreUsuario = localStorage.getItem("nombre-usuario");
   console.log(nombreUsuario);
   let saludo = document.querySelector("#saludo");
