@@ -2,7 +2,7 @@
 import { inicializarTablero } from "./barajar-cartas.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  inicializarTablero();
+  // inicializarTablero();
   let nombreUsuario = localStorage.getItem("nombre-usuario");
   console.log(nombreUsuario);
   let saludo = document.querySelector("#saludo");
@@ -68,8 +68,22 @@ document.addEventListener("DOMContentLoaded", () => {
               puntuacion += 40;
             }
             puntuacionHTML.innerHTML = `<p> Puntuacion : ${puntuacion} </p>`;
-            finalizarPartida();
-            alert("juego terminado con exito");
+            alert("tablero completado");
+            let formData3 = new FormData();
+
+            // if (tiempoTranscurrido < 60 && puntuacion == 15) {
+            //  puntuacion += 40;
+            // }
+
+            formData3.append("tiempo", tiempoTranscurrido);
+            formData3.append("puntuacion", puntuacion);
+
+            fetch("partida.php", {
+              method: "POST",
+              body: formData3,
+            });
+            
+            clearInterval(intervalo);
             return;
           }
         } else {
