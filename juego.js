@@ -39,10 +39,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let puntuacionHTML = document.querySelector("#puntuacion");
   let puntuacion = 0;
+  let primeraCarta;
 
   for (let cadaCartaClick of cartasCLick) {
     cadaCartaClick.addEventListener("click", (evento) => {
-      puntuacion++;
+      const carta = evento.currentTarget;
+      const interiorCarta = carta.querySelector(".carta-interior");
+      if (interiorCarta.classList.contains("carta-click")) {
+        return;
+      } else {
+        interiorCarta.classList.add("carta-click");
+      }
+      const rutaImagen = carta.dataset.imagen;
+      const cara = carta.querySelector(".carta-anverso");
+      cara.style.backgroundImage = `url("${rutaImagen}")`;
+
+      if (primeraCarta === undefined) {
+        primeraCarta = carta;
+      } else {
+        if (primeraCarta.dataset.imagen === carta.dataset.imagen) {
+          console.log("son pareja");
+          puntuacion++;
+        } else {
+          console.log("no son pareja");
+          const cartaPrimera = primeraCarta;
+          const cartaSegunda = carta;
+          setTimeout(() => {
+            cartaPrimera
+              .querySelector(".carta-interior")
+              .classList.remove("carta-click");
+            cartaSegunda
+              .querySelector(".carta-interior")
+              .classList.remove("carta-click");
+          }, 1000);
+        }
+
+        primeraCarta = undefined;
+      }
+
+      // cadaCartaClick.classList.toggle("carta-click");
+      // puntuacion++;
       puntuacionHTML.innerHTML = `<p> Puntuacion : ${puntuacion} </p>`;
     });
   }
