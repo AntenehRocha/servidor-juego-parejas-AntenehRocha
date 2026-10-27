@@ -89,6 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   botonTerminar.addEventListener("click", () => {
     let formData2 = new FormData();
+
+    if (tiempoTranscurrido > 0 && puntuacion == 15) {
+      puntuacion += 40;
+    }
+
     formData2.append("tiempo", tiempoTranscurrido);
     formData2.append("puntuacion", puntuacion);
 
