@@ -8,6 +8,8 @@ require_once __DIR__ . '/conexion.php';
 
 if (count($coleccionPartida->find()->toArray()) < 5) {
     $resultados = ['error' => 'no hay suficientes partidas para mostrar el top'];
+    echo json_encode($resultados);
+    exit;
 } else {
     $top = [
         'sort' => ['puntuacion' => -1],

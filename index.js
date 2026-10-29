@@ -31,12 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(partidas);
 
       let contenedorTop = document.querySelector("#contenedor-datos-top");
-      contenedorTop.innerHTML = `
+      if (partidas.error) {
+        contenedorTop.innerHTML = `${partidas.error}`;
+      } else {
+        contenedorTop.innerHTML = `
       <p> El primero es ${partidas[0].usuario} con ${partidas[0].puntuacion} puntos </p>
-      <p> El tercero es ${partidas[1].usuario} con ${partidas[1].puntuacion} puntos </p>
-      <p> El segundo es ${partidas[2].usuario} con ${partidas[2].puntuacion} puntos </p>
+      <p> El segundo es ${partidas[1].usuario} con ${partidas[1].puntuacion} puntos </p>
+      <p> El tercero es ${partidas[2].usuario} con ${partidas[2].puntuacion} puntos </p>
       <p> El cuarto es ${partidas[3].usuario} con ${partidas[3].puntuacion} puntos </p>
       <p> El quinto es ${partidas[4].usuario} con ${partidas[4].puntuacion} puntos </p>
       `;
+      }
     });
 });
