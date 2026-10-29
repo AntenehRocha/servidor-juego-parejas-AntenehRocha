@@ -46,15 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let cadaCartaClick of cartasCLick) {
     cadaCartaClick.addEventListener("click", (evento) => {
       const carta = evento.currentTarget;
-      const interiorCarta = carta.querySelector(".carta-interior");
-      if (interiorCarta.classList.contains("carta-click")) {
-        return;
-      } else {
-        interiorCarta.classList.add("carta-click");
-      }
+
       const rutaImagen = carta.dataset.imagen;
-      const cara = carta.querySelector(".carta-anverso");
-      cara.style.backgroundImage = `url("${rutaImagen}")`;
+      const cara = carta.style.backgroundImage = `url("${rutaImagen}")`;
+      const cartaVuelta = cara.style.rotate
 
       if (primeraCarta === undefined) {
         primeraCarta = carta;
