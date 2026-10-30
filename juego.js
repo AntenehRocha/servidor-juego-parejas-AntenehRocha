@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(nombreUsuario);
   let saludo = document.querySelector("#saludo");
   saludo.innerHTML = `<p> Hola ${nombreUsuario} </p>`;
-  let tiempo = 60;
+  let tiempo = 7;
   let tiempoTranscurrido = 0;
   let intervalo;
 
@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (tiempo <= 0) {
         clearInterval(intervalo);
+        let felicidadesHTML = document.querySelector(".tablero");
+        felicidadesHTML.innerHTML = `
+            <div class='pop-up-perder'>
+            <h1> Has perdido </h1>
+            </div>`;
         alert("Tiempo agotado");
 
         let formData2 = new FormData();

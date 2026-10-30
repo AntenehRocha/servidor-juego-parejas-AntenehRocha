@@ -224,6 +224,14 @@ button:hover {
   align-items: center;
 }
 
+.pop-up-perder {
+  display: flex;
+  flex-direction: row;
+  color: red;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 900px) {
   .contenedor-index {
     width: 90%;
