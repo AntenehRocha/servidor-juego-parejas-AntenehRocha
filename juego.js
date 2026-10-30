@@ -2,12 +2,12 @@
 import { inicializarTablero } from "./barajar-cartas.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // inicializarTablero();
+  inicializarTablero();
   let nombreUsuario = localStorage.getItem("nombre-usuario");
   console.log(nombreUsuario);
   let saludo = document.querySelector("#saludo");
   saludo.innerHTML = `<p> Hola ${nombreUsuario} </p>`;
-  let tiempo = 7;
+  let tiempo = 60;
   let tiempoTranscurrido = 0;
   let intervalo;
 
