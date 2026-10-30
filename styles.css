@@ -194,6 +194,16 @@ button:hover {
   border-radius: 12px;
 }
 
+.tiempo-acabandose {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  color: rgb(255, 65, 65);
+  font-weight: bold;
+}
+
 #puntuacion {
   box-sizing: border-box;
   width: 100%;
@@ -204,6 +214,14 @@ button:hover {
 
 .terminar-ahora {
   width: 100%;
+}
+
+.pop-up-ganar {
+  display: flex;
+  flex-direction: row;
+  color: rgb(0, 190, 0);
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 900px) {

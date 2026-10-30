@@ -2,7 +2,7 @@
 import { inicializarTablero } from "./barajar-cartas.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  inicializarTablero();
+  // inicializarTablero();
   let nombreUsuario = localStorage.getItem("nombre-usuario");
   console.log(nombreUsuario);
   let saludo = document.querySelector("#saludo");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (tiempo <= 0) {
         clearInterval(intervalo);
-        alert("tiempo agotado, intentalo de nuevo");
+        alert("Tiempo agotado");
 
         let formData2 = new FormData();
         formData2.append("tiempo", tiempoTranscurrido);
@@ -33,7 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(tiempo);
 
       let tiempoHTML = document.querySelector("#tiempo");
-      tiempoHTML.innerHTML = `<p> Tiempo : ${tiempo} </p>`;
+      if (tiempo <= 5) {
+        tiempoHTML.classList.add("tiempo-acabandose");
+        tiempoHTML.innerHTML = `<p> Tiempo : ${tiempo} </p>`;
+      } else {
+        tiempoHTML.classList.remove("tiempo-acabandose");
+        tiempoHTML.innerHTML = `<p> Tiempo : ${tiempo} </p>`;
+      }
     }, 1000);
   }
 
@@ -76,7 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
               puntuacion += 40;
             }
             puntuacionHTML.innerHTML = `<p> Puntuacion : ${puntuacion} </p>`;
-            alert("tablero completado");
+            let felicidadesHTML = document.querySelector(".tablero");
+            felicidadesHTML.innerHTML = `
+            <div class='pop-up-ganar'>
+            <h1> Has ganado </h1>
+            </div>`;
+            alert("Has ganado, felicidades!");
             let formData3 = new FormData();
 
             // if (tiempoTranscurrido < 60 && puntuacion == 15) {
@@ -135,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body: formData2,
     });
     clearInterval(intervalo);
-    alert("juego terminado con exito");
+    alert("Acabas de terminar el juego voluntariamente");
   });
 
   tiempoJuego();
