@@ -42,21 +42,34 @@ document.addEventListener("DOMContentLoaded", () => {
   let puntuacionHTML = document.querySelector("#puntuacion");
   let puntuacion = 0;
   let primeraCarta;
+  let bloqueado = false;
 
   for (let cadaCartaClick of cartasCLick) {
     cadaCartaClick.addEventListener("click", (evento) => {
       const carta = evento.currentTarget;
 
+      if (
+        bloqueado ||
+        carta === primeraCarta ||
+        carta.dataset.encontrada === "true"
+      ) {
+        return;
+      }
+
       const rutaImagen = carta.dataset.imagen;
-      const cara = carta.style.backgroundImage = `url("${rutaImagen}")`;
-      const cartaVuelta = cara.style.rotate
+      carta.style.backgroundImage = `url("${rutaImagen}")`;
+      carta.classList.add("carta-click");
 
       if (primeraCarta === undefined) {
         primeraCarta = carta;
+        return;
       } else {
         if (primeraCarta.dataset.imagen === carta.dataset.imagen) {
           console.log("son pareja");
           puntuacion++;
+
+          primeraCarta.dataset.encontrada = "true";
+          carta.dataset.encontrada = "true";
 
           if (puntuacion === 15) {
             if (tiempoTranscurrido < 60) {
@@ -85,13 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log("no son pareja");
           const cartaPrimera = primeraCarta;
           const cartaSegunda = carta;
+          bloqueado = true;
           setTimeout(() => {
-            cartaPrimera
-              .querySelector(".carta-interior")
-              .classList.remove("carta-click");
-            cartaSegunda
-              .querySelector(".carta-interior")
-              .classList.remove("carta-click");
+            cartaPrimera.style.backgroundImage = "";
+            cartaSegunda.style.backgroundImage = "";
+            cartaPrimera.classList.remove("carta-click");
+            cartaSegunda.classList.remove("carta-click");
+            primeraCarta = undefined;
+            bloqueado = false;
           }, 1000);
         }
 

@@ -150,22 +150,17 @@ button:hover {
   box-sizing: border-box;
   width: 100%;
   aspect-ratio: 1;
-  perspective: 800px;
   border: 1px solid #fff;
   border-radius: 14px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.6s;
-  background-image: url('./public/img/cartas-individuales/reverso.svg');
+  background-image: url("./public/img/cartas-individuales/reverso.svg");
   background-size: cover;
 }
 
-.carta:hover {
-  transform: scale(1.04);
-}
-
 .carta-click {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) scaleX(-1);
 }
 
 .sidebar {
